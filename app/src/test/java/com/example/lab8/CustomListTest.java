@@ -1,13 +1,8 @@
 package com.example.lab8;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-
-//import org.junit.Before;
-import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
@@ -15,11 +10,13 @@ public class CustomListTest {
 
     private CustomList list;
 
-    @Before
+    // Initialize the list before each test
+    @BeforeEach
     public void setUp() {
         list = new CustomList(null, new ArrayList<>());
     }
 
+    // Test to verify adding a city increases the size of the list
     @Test
     public void addCityTest() {
         int initialSize = list.getCount();  // Get initial size of the list
