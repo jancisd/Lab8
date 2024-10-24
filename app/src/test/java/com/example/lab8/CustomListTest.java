@@ -1,8 +1,10 @@
 package com.example.lab8;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestTemplate;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -38,9 +40,15 @@ public class CustomListTest {
     }
 
     @Test
-    public void deleteCityTest(){
+    public void deleteCityTest() {
+        list = MockCityList();
+        City city = new City("Calgary", "Alberta");
+        list.addCity(city);
 
+        assertTrue(list.hasCity(city));
 
+        list.deleteCity(city);
+        Assertions.assertFalse(list.hasCity(city));
     }
 
     @Test
